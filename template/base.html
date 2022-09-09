@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="utf-8"/>
+    <title>Price Airbnb</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="http://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <script src='{% static "js/leaflet.markercluster-src.js" %}'></script>
+
+    <script>
+        $(document)
+            .ready(function () {
+                $('.ui.menu a.item')
+                    .on('click', function () {
+                        $(this)
+                            .addClass('active')
+                            .siblings()
+                            .removeClass('active')
+                        ;
+                    })
+                ;
+            })
+        ;
+    </script>
+
+    <link rel="stylesheet" href='{% static "css/MarkerCluster.Default.css" %}'>
+
+</head>
+<body>
+<div class="ui vertical masthead segment">
+    <div class="ui container">
+        <div class="ui secondary menu">
+
+            <a href="{% url 'home' %}" class="item">Home</a>
+            <a href="{% url 'map' %}" class="item">World Map</a>
+            <a class="right item">
+                Group 21 - Airbnb Price Prediction Project
+            </a>
+            <div class="item">
+                <img src="/static/img/cu.png">
+            </div>
+        </div>
+    </div>
+    <section id="content">{% block content %}{% endblock %}</section>
+</div>
+
+<div class="ui divider"></div>
+
+</body>
+</html>
+
+
